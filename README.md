@@ -1,5 +1,3 @@
-# Fleet-Maintenance
-data cleaning and visualization project for marketing
 # Enterprise Fleet Maintenance & PM Compliance Analytics
 
 An end-to-end fleet analytics and data pipeline solution that transforms raw repair order logs into operational metrics. This project automates data generation via **Google Apps Script**, syncs structured records to **Google Sheets**, and publishes an interactive operational dashboard on **Tableau Public**.
