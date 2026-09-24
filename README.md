@@ -188,3 +188,56 @@ function generateFleetData() {
 
   Logger.log("SUCCESS: Generated 500 fleet maintenance records.");
 }
+Click Save (💾) and then Run (▶ generateFleetData).
+
+Grant permissions when prompted. Return to Google Sheets to verify the Fleet_Maintenance_Data tab is filled with 500 formatted records.
+
+Step 2: Connect to Tableau Public
+Log into Tableau Public and click Create a Viz.
+
+Select Google Sheets under the data connectors list and sign in with your Google account.
+
+Choose the Fleet_Maintenance_Data_Warehouse file and load the Fleet_Maintenance_Data tab.
+
+Ensure Service_Date is set to Date data type and Odometer_Miles, Total_Repair_Cost, and Unscheduled_Downtime_Hrs are recognized as Measures (Numbers).
+
+Step 3: Recreate Calculated Fields in Tableau
+Create the following calculated fields in Tableau's Data pane:
+
+Code snippet
+// 1. PM Compliance %
+SUM(IF [PM Status] = "Compliant" OR [PM Status] = "Due Soon" THEN 1 ELSE 0 END) / COUNT([WO Number])
+
+// 2. Total Financial Impact ($)
+SUM([Total Repair Cost]) + (SUM([Unscheduled Downtime Hrs]) * 75)
+
+// 3. Unscheduled Spend Ratio (%)
+SUM(IF [Repair Category] != "Preventative Maintenance" THEN [Total Repair Cost] ELSE 0 END) / SUM([Total Repair Cost])
+
+// 4. Threshold Flagging Fields
+IF [PM Compliance %] >= 0.85 THEN "Good" ELSE "Alert" END
+📈 Dashboard Layout & Visuals
+The finalized dashboard features a top-to-bottom layout:
+
+Top Horizontal Container — Executive KPI Scorecard:
+
+Big Ass Numbers (BANs) displaying real-time PM Compliance %, Total Impact ($), and Unscheduled Spend Ratio (%).
+
+Dynamic conditional color-coding (Green = Target Met, Red = Action Needed).
+
+Bottom-Left — US Regional Hub Map:
+
+Plots operational hubs by State and City.
+
+Color-encoded by Unscheduled Downtime Hours and sized by Financial Impact ($).
+
+Bottom-Right — Vendor Performance Analysis:
+
+Horizontal bar chart ranking vendors by total repair spend and lead-time delays.
+
+Interactive Global Filtering:
+
+Map markers configured as global action filters ("Use as Filter") to allow immediate regional drill-downs.
+
+🔗 Live Demo & Links
+Live Interactive Dashboard: View on Tableau Public
