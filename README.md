@@ -194,7 +194,7 @@ Click Save (💾) and then Run (▶ generateFleetData).
 
 Grant permissions when prompted. Return to Google Sheets to verify the Fleet_Maintenance_Data tab is filled with 500 formatted records.
 
-Step 2: Connect to Tableau Public
+### Step 2: Connect to Tableau Public
 Log into Tableau Public and click Create a Viz.
 
 Select Google Sheets under the data connectors list and sign in with your Google account.
@@ -203,7 +203,7 @@ Choose the Fleet_Maintenance_Data_Warehouse file and load the Fleet_Maintenance_
 
 Ensure Service_Date is set to Date data type and Odometer_Miles, Total_Repair_Cost, and Unscheduled_Downtime_Hrs are recognized as Measures (Numbers).
 
-Step 3: Recreate Calculated Fields in Tableau
+### Step 3: Recreate Calculated Fields in Tableau
 Create the following calculated fields in Tableau's Data pane:
 
 Code snippet
@@ -241,5 +241,5 @@ Interactive Global Filtering:
 
 Map markers configured as global action filters ("Use as Filter") to allow immediate regional drill-downs.
 
-🔗 Live Demo & Links
+### 🔗 Live Demo & Links
 Live Interactive Dashboard: View on Tableau Public
