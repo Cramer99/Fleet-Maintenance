@@ -188,6 +188,8 @@ function generateFleetData() {
 
   Logger.log("SUCCESS: Generated 500 fleet maintenance records.");
 }
+```
+
 Click Save (💾) and then Run (▶ generateFleetData).
 
 Grant permissions when prompted. Return to Google Sheets to verify the Fleet_Maintenance_Data tab is filled with 500 formatted records.
